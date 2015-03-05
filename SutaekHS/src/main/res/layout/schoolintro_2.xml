@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="32dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="노력중점"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/public_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/fe_eb_sub_1"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/fe_eb_sub_2"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/fe_eb_sub_3"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/fe_eb_sub_4"
+            android:textColor="@color/md_black_1000" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="특색사업"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/public_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/feat_busin_desc_1"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/feat_busin_desc_2"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/feat_busin_desc_3"
+            android:textColor="@color/md_black_1000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:text="@string/feat_busin_desc_4"
+            android:textColor="@color/md_black_1000" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

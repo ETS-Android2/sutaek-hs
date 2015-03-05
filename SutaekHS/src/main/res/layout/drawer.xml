@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white_1000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewCover"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/background" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="172dp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutDrawerTexts"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_alignBottom="@id/imageViewCover"
+                android:clickable="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:id="@+id/textViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginRight="32dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:singleLine="true"
+                        android:text="경기도 구리시 수택동 검배로 145"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textViewUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/textViewName"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginRight="32dp"
+                        android:fontFamily="sans-serif"
+                        android:singleLine="true"
+                        android:text="@string/app_name"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ToggleButton
+                android:id="@+id/toggleButtonDrawer"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:background="?attr/selectableItemBackground"
+                android:checked="false"
+                android:textOff=""
+                android:textOn="" />
+
+            <ImageView
+                android:id="@+id/imageViewPicture"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sutaek" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutMain"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/main"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/main"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textColor="@color/public_color"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/notices"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/notices"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:state_checked="true"
+                    android:id="@+id/notices_chkbox"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/parents"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/notices_parents"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:state_checked="true"
+                    android:id="@+id/notices_parents_chkbox"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/schedule"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/schedule"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/schedule_chkbox"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/meal"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/meal"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:state_checked="true"
+                    android:id="@+id/meal_chkbox"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/events"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/schoolevent"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/schoolintro"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/schoolintro"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/setting"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="72dp"
+                    android:singleLine="true"
+                    android:text="@string/info"
+                    android:textStyle="bold"
+                    android:textColor="@color/md_grey_600"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

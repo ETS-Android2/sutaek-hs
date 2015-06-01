@@ -28,7 +28,9 @@ import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
+
 import com.codejune.sutaekhighschool.fragment.Favorites;
 import com.codejune.sutaekhighschool.R;
 import com.codejune.sutaekhighschool.fragment.Schoolinfo;
@@ -41,10 +43,10 @@ public class MainActivity extends ActionBarActivity {
     //View Pager
     ViewPager mViewPager;
     MainPagerAdapter mMainPagerAdapter;
-    int Numboftabs =2;
-    CharSequence Titles[]={"즐겨찾기","학교정보"};
+    int Numboftabs = 2;
+    CharSequence Titles[] = {"즐겨찾기", "학교정보"};
     SlidingTabLayout tabs;
-    private Toolbar toolbar;
+    Toolbar toolbar;
     FrameLayout statusBar;
     DrawerLayout mDrawerLayout;
     RelativeLayout relativeLayoutSettings;
@@ -114,7 +116,7 @@ public class MainActivity extends ActionBarActivity {
             tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
                 @Override
                 public int getIndicatorColor(int position) {
-                    return getResources().getColor(R.color.md_yellow_500);
+                    return getResources().getColor(R.color.md_amber_500);
                 }
             });
 
@@ -128,7 +130,7 @@ public class MainActivity extends ActionBarActivity {
             mMealChkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mMealChkBox.isChecked()) {
+                    if (mMealChkBox.isChecked()) {
                         edit.putBoolean("meal", true).apply();
                         findViewById(R.id.meal).setVisibility(View.VISIBLE);
                         mMainPagerAdapter.notifyDataSetChanged();
@@ -144,7 +146,7 @@ public class MainActivity extends ActionBarActivity {
             NoticesChkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(NoticesChkBox.isChecked()) {
+                    if (NoticesChkBox.isChecked()) {
                         edit.putBoolean("notices", true).apply();
                         findViewById(R.id.notices).setVisibility(View.VISIBLE);
                         mMainPagerAdapter.notifyDataSetChanged();
@@ -160,7 +162,7 @@ public class MainActivity extends ActionBarActivity {
             mNParentsChkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mNParentsChkBox.isChecked()) {
+                    if (mNParentsChkBox.isChecked()) {
                         edit.putBoolean("notices_parents", true).apply();
                         findViewById(R.id.notices_parents).setVisibility(View.VISIBLE);
                         mMainPagerAdapter.notifyDataSetChanged();
@@ -177,7 +179,7 @@ public class MainActivity extends ActionBarActivity {
             ScheduleChkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(ScheduleChkBox.isChecked()) {
+                    if (ScheduleChkBox.isChecked()) {
                         edit.putBoolean("schedule", true).apply();
                         findViewById(R.id.schedule).setVisibility(View.VISIBLE);
                         mMainPagerAdapter.notifyDataSetChanged();
@@ -241,6 +243,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Get support to the toolbar and change its title
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     // 인터넷 연결 상태 체크
@@ -280,6 +283,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
     private void openParents() {
         relativeLayoutSettings = (RelativeLayout) findViewById(R.id.parents);
         relativeLayoutSettings.setOnClickListener(new View.OnClickListener() {
@@ -298,6 +302,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
     private void openNotices() {
         relativeLayoutSettings = (RelativeLayout) findViewById(R.id.notices);
         relativeLayoutSettings.setOnClickListener(new View.OnClickListener() {
@@ -466,14 +471,14 @@ public class MainActivity extends ActionBarActivity {
         }
         // Fix landscape issues (only Lollipop)
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            if (Build.VERSION.SDK_INT >= 19){
+            if (Build.VERSION.SDK_INT >= 19) {
                 TypedValue typedValue19 = new TypedValue();
                 MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue19, true);
                 final int color = typedValue19.data;
                 FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
                 statusBar.setBackgroundColor(color);
             }
-            if (Build.VERSION.SDK_INT >= 21){
+            if (Build.VERSION.SDK_INT >= 21) {
                 TypedValue typedValue = new TypedValue();
                 MainActivity.this.getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
                 final int color = typedValue.data;
@@ -488,7 +493,7 @@ class MainPagerAdapter extends FragmentStatePagerAdapter {
     int NumbOfTabs; // Store the number of tabs, this will also be passed when the ViewPagerAdapter is created
 
     // Build a Constructor and assign the passed Values to appropriate values in the class
-    public MainPagerAdapter(FragmentManager fm,CharSequence mTitles[], int mNumbOfTabsumb) {
+    public MainPagerAdapter(FragmentManager fm, CharSequence mTitles[], int mNumbOfTabsumb) {
 
         super(fm);
 
@@ -501,12 +506,11 @@ class MainPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if(position == 0) // if the position is 0 we are returning the First tab
+        if (position == 0) // if the position is 0 we are returning the First tab
         {
             Favorites favorites = new Favorites();
             return favorites;
-        }
-        else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
+        } else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
 
             Schoolinfo schoolinfo = new Schoolinfo();

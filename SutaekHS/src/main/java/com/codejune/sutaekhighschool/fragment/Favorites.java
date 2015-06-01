@@ -18,23 +18,31 @@ import android.widget.TextView;
 
 import com.codejune.sutaekhighschool.activity.MealActivity;
 import com.codejune.sutaekhighschool.activity.Schedule;
+import com.codejune.sutaekhighschool.ui.ProgressWheel;
 import com.codejune.sutaekhighschool.util.MealLoadHelper;
 import com.codejune.sutaekhighschool.R;
 import com.codejune.sutaekhighschool.activity.NoticesActivity;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class Favorites extends Fragment {
     private String URL = "http://www.sutaek.hs.kr/main.php?menugrp=020102&master=" +
             "diary&act=list&master_sid=1";
+    private ProgressWheel progressWheel1;
+    private ProgressWheel progressWheel2;
+    private ProgressWheel progressWheel3;
+    private ProgressWheel progressWheel4;
     String MealString;
     String ScheduleString;
     String NoticesParentString1;
@@ -76,28 +84,33 @@ public class Favorites extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.activity_favorites, null);
+        progressWheel1 = (ProgressWheel) view.findViewById(R.id.progress_wheel1);
+        progressWheel2 = (ProgressWheel) view.findViewById(R.id.progress_wheel2);
+        progressWheel3 = (ProgressWheel) view.findViewById(R.id.progress_wheel3);
+        progressWheel4 = (ProgressWheel) view.findViewById(R.id.progress_wheel4);
+
         Calendar Cal = Calendar.getInstance();
         AMorPM = Cal.get(Calendar.AM_PM);
         MONTH = Cal.get(Calendar.MONTH);
         DAYofWEEK = Cal.get(Calendar.DAY_OF_WEEK);
         DAYofMONTH = Cal.get(Calendar.DAY_OF_MONTH);
-        MEAL = (TextView)view.findViewById(R.id.mealdata);
-        MEALTIME = (TextView)view.findViewById(R.id.mealtime);
-        SCHEDULE = (TextView)view.findViewById(R.id.scheduledata);
-        NOTIPARNTS1 = (TextView)view.findViewById(R.id.notiparentdata1);
-        NOTIPARNTSDATE1  = (TextView)view.findViewById(R.id.notiparentdate1);
-        NOTIPARNTS2 = (TextView)view.findViewById(R.id.notiparentdata2);
-        NOTIPARNTSDATE2  = (TextView)view.findViewById(R.id.notiparentdate2);
-        NOTICES1 = (TextView)view.findViewById(R.id.noticedata1);
-        NOTICESDATE1  = (TextView)view.findViewById(R.id.noticedate1);
-        NOTICES2 = (TextView)view.findViewById(R.id.noticedata2);
-        NOTICESDATE2  = (TextView)view.findViewById(R.id.noticedate2);
-        DAY = (TextView)view.findViewById(R.id.day);
+        MEAL = (TextView) view.findViewById(R.id.mealdata);
+        MEALTIME = (TextView) view.findViewById(R.id.mealtime);
+        SCHEDULE = (TextView) view.findViewById(R.id.scheduledata);
+        NOTIPARNTS1 = (TextView) view.findViewById(R.id.notiparentdata1);
+        NOTIPARNTSDATE1 = (TextView) view.findViewById(R.id.notiparentdate1);
+        NOTIPARNTS2 = (TextView) view.findViewById(R.id.notiparentdata2);
+        NOTIPARNTSDATE2 = (TextView) view.findViewById(R.id.notiparentdate2);
+        NOTICES1 = (TextView) view.findViewById(R.id.noticedata1);
+        NOTICESDATE1 = (TextView) view.findViewById(R.id.noticedate1);
+        NOTICES2 = (TextView) view.findViewById(R.id.noticedata2);
+        NOTICESDATE2 = (TextView) view.findViewById(R.id.noticedate2);
+        DAY = (TextView) view.findViewById(R.id.day);
         View meal = view.findViewById(R.id.meal);
         View notices_parents = view.findViewById(R.id.notices_parents);
         View notices = view.findViewById(R.id.notices);
         View schedule = view.findViewById(R.id.schedule);
-        SRL = (SwipeRefreshLayout)view.findViewById(R.id.swiperefresh);
+        SRL = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
         SRL.setColorSchemeColors(Color.rgb(231, 76, 60),
                 Color.rgb(46, 204, 113), Color.rgb(41, 128, 185),
                 Color.rgb(241, 196, 15));
@@ -107,12 +120,14 @@ public class Favorites extends Fragment {
                 if (!isNetworkConnected(getActivity())) {
                     Crouton.makeText(getActivity(), R.string.network_connection_warning, Style.INFO).show();
                     SRL.setRefreshing(false);
-                }
-                else{
+                } else {
                     if (sp.getBoolean("meal", true) && isNetworkConnected(getActivity())) getMeal();
-                    if (sp.getBoolean("schedule", true) && isNetworkConnected(getActivity())) getSchedule();
-                    if (sp.getBoolean("notices", true) && isNetworkConnected(getActivity())) getNotices();
-                    if (sp.getBoolean("notices_parents", true) && isNetworkConnected(getActivity())) getNParents();
+                    if (sp.getBoolean("schedule", true) && isNetworkConnected(getActivity()))
+                        getSchedule();
+                    if (sp.getBoolean("notices", true) && isNetworkConnected(getActivity()))
+                        getNotices();
+                    if (sp.getBoolean("notices_parents", true) && isNetworkConnected(getActivity()))
+                        getNParents();
                 }
             }
         });
@@ -121,7 +136,9 @@ public class Favorites extends Fragment {
             meal.setVisibility(View.VISIBLE);
             if (isNetworkConnected(getActivity())) {
             } else {
+                progressWheel1.setVisibility(progressWheel1.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getMeal();
+                progressWheel1.setVisibility(progressWheel1.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             meal.setVisibility(View.GONE);
@@ -130,7 +147,9 @@ public class Favorites extends Fragment {
             schedule.setVisibility(View.VISIBLE);
             if (!isNetworkConnected(getActivity())) {
             } else {
+                progressWheel2.setVisibility(progressWheel2.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getSchedule();
+                progressWheel2.setVisibility(progressWheel2.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             schedule.setVisibility(View.GONE);
@@ -139,7 +158,9 @@ public class Favorites extends Fragment {
             notices.setVisibility(View.VISIBLE);
             if (!isNetworkConnected(getActivity())) {
             } else {
+                progressWheel3.setVisibility(progressWheel3.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getNotices();
+                progressWheel3.setVisibility(progressWheel3.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             notices.setVisibility(View.GONE);
@@ -148,7 +169,10 @@ public class Favorites extends Fragment {
             notices_parents.setVisibility(View.VISIBLE);
             if (!isNetworkConnected(getActivity())) {
             } else {
+                progressWheel4.setVisibility(progressWheel4.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getNParents();
+                progressWheel4.setVisibility(progressWheel4.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
+
             }
         } else {
             notices_parents.setVisibility(View.GONE);
@@ -199,40 +223,49 @@ public class Favorites extends Fragment {
         if (sp.getBoolean("meal", true)) {
             meal.setVisibility(View.VISIBLE);
             if (isNetworkConnected(getActivity())) {
+                progressWheel1.setVisibility(progressWheel1.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getMeal();
+                progressWheel1.setVisibility(progressWheel1.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             meal.setVisibility(View.GONE);
         }
-        if (sp.getBoolean("notices_parents", true)) {
-            notices_parents.setVisibility(View.VISIBLE);
+        if (sp.getBoolean("schedule", true)) {
+            schedule.setVisibility(View.VISIBLE);
             if (isNetworkConnected(getActivity())) {
-                getNParents();
+                progressWheel2.setVisibility(progressWheel2.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
+                getSchedule();
+                progressWheel2.setVisibility(progressWheel2.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
-            notices_parents.setVisibility(View.GONE);
+            schedule.setVisibility(View.GONE);
         }
         if (sp.getBoolean("notices", true)) {
             notices.setVisibility(View.VISIBLE);
             if (isNetworkConnected(getActivity())) {
+                progressWheel3.setVisibility(progressWheel3.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
                 getNParents();
+                progressWheel3.setVisibility(progressWheel3.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             notices.setVisibility(View.GONE);
         }
-        if (sp.getBoolean("schedule", true)) {
-            schedule.setVisibility(View.VISIBLE);
+        if (sp.getBoolean("notices_parents", true)) {
+            notices_parents.setVisibility(View.VISIBLE);
             if (isNetworkConnected(getActivity())) {
-                getSchedule();
+                progressWheel4.setVisibility(progressWheel4.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
+                getNParents();
+                progressWheel4.setVisibility(progressWheel4.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
-            schedule.setVisibility(View.GONE);
+            notices_parents.setVisibility(View.GONE);
         }
     }
 
     public void getMeal() {
         SRL.setRefreshing(true);
         final Handler mHandler = new Handler();
+        progressWheel1.setVisibility(progressWheel1.getVisibility() == View.GONE ? View.INVISIBLE : View.VISIBLE);
         new Thread() {
 
             public void run() {
@@ -255,17 +288,19 @@ public class Favorites extends Fragment {
                         SRL.setRefreshing(false);
                         mHandler.sendEmptyMessage(0);
                         TimeZone kst = TimeZone.getTimeZone("KST");
-                        Calendar cal = Calendar.getInstance ( kst );
-                        DAY.setText(( cal.get ( Calendar.MONTH ) + 1 ) + "월 "
-                                + cal.get ( Calendar.DATE ) + "일 ");
+                        Calendar cal = Calendar.getInstance(kst);
+                        DAY.setText((cal.get(Calendar.MONTH) + 1) + "월 "
+                                + cal.get(Calendar.DATE) + "일 ");
                         if (MealString == null || MealString.equals("") || " ".equals(MealString)) {
                             MealString = getResources().getString(R.string.mealnone);
                         }
                         MEAL.setText(MealString);
+                        progressWheel1.setVisibility(View.GONE);
                     }
                 });
             }
         }.start();
+        progressWheel1.setVisibility(progressWheel1.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
     }
 
     void getSchedule() {
@@ -273,6 +308,7 @@ public class Favorites extends Fragment {
         schedulearray = new ArrayList<String>();
         dayarray = new ArrayList<String>();
         final Handler mHandler = new Handler();
+        progressWheel2.setVisibility(progressWheel2.getVisibility() == View.GONE ? View.INVISIBLE : View.VISIBLE);
         new Thread() {
             public void run() {
                 try {
@@ -320,10 +356,12 @@ public class Favorites extends Fragment {
                         mHandler.sendEmptyMessage(0);
                         SRL.setRefreshing(false);
                         SCHEDULE.setText(ScheduleString);
+                        progressWheel2.setVisibility(View.GONE);
                     }
                 });
             }
         }.start();
+        progressWheel2.setVisibility(progressWheel2.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
     }
 
     void getNotices() {
@@ -332,6 +370,7 @@ public class Favorites extends Fragment {
         titlearray_n = new ArrayList<String>();
         datearray1 = new ArrayList<String>();
         final Handler mHandler = new Handler();
+        progressWheel3.setVisibility(progressWheel3.getVisibility() == View.GONE ? View.INVISIBLE : View.VISIBLE);
         new Thread() {
             public void run() {
                 try {
@@ -372,10 +411,12 @@ public class Favorites extends Fragment {
                         NOTICESDATE1.setText("등록일 : " + NoticesDate1);
                         NOTICES2.setText(NoticesString2);
                         NOTICESDATE2.setText("등록일 : " + NoticesDate2);
+                        progressWheel3.setVisibility(View.GONE);
                     }
                 });
             }
         }.start();
+        progressWheel3.setVisibility(progressWheel3.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
     }
 
     void getNParents() {
@@ -384,6 +425,7 @@ public class Favorites extends Fragment {
         titlearray_np = new ArrayList<String>();
         datearray2 = new ArrayList<String>();
         final Handler mHandler = new Handler();
+        progressWheel4.setVisibility(progressWheel4.getVisibility() == View.GONE ? View.INVISIBLE : View.VISIBLE);
         new Thread() {
             public void run() {
                 try {
@@ -424,10 +466,12 @@ public class Favorites extends Fragment {
                         NOTIPARNTSDATE1.setText("등록일 : " + NoticesParentDate1);
                         NOTIPARNTS2.setText(NoticesParentString2);
                         NOTIPARNTSDATE2.setText("등록일 : " + NoticesParentDate2);
+                        progressWheel4.setVisibility(View.GONE);
                     }
                 });
             }
         }.start();
+        progressWheel4.setVisibility(progressWheel4.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
     }
 
     // 인터넷 연결 상태 체크

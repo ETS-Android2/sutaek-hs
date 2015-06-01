@@ -82,11 +82,11 @@
 
             <ImageView
                 android:id="@+id/imageViewPicture"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="32dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/sutaek" />
 

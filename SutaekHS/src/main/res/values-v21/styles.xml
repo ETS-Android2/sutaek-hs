@@ -3,7 +3,7 @@
     <style name="Theme.Sutaek_Material" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/public_color</item>
         <item name="colorPrimaryDark">@color/public_darker_color</item>
-        <item name="colorAccent">@color/md_yellow_500</item>
+        <item name="colorAccent">@color/md_amber_500</item>
         <item name="windowActionBar">false</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:windowTranslucentNavigation">@bool/translucentNavigationBar</item>

@@ -35,6 +35,8 @@ public class Schoolinfo extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         FloatingActionButton techersroom = (FloatingActionButton) view.findViewById(R.id.teachers_room);
         techersroom.setOnClickListener(new View.OnClickListener() {
             @Override

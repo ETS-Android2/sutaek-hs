@@ -4,7 +4,7 @@
     http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
     <!--reds-->
     <color name="public_color">#ffe34f54</color>
-    <color name="public_darker_color">#ffd44246</color>
+    <color name="public_darker_color">#b52227</color>
     <color name="black_semi_transparent">#b2000000</color>
     <array name="reds">
         <item>@color/md_red_500</item>
@@ -661,10 +661,11 @@
         <item>@color/md_disabled_hint_text</item>
         <item>@color/md_divider</item>
     </array>
-    <color name="md_text">#df000000</color>
+    <color name="md_text">#212121</color>
+    <color name="md_secondary_text">#727272</color>
     <color name="md_secondary_text_icons">#8a000000</color>
     <color name="md_disabled_hint_text">#4c000000</color>
-    <color name="md_divider">#1f000000</color>
+    <color name="md_divider">#b6b6b6</color>
     <!--Falcon-->
     <array name="falcon">
         <item>@color/md_falcon_400</item>
@@ -679,6 +680,5 @@
     <color name="md_falcon_500_50">#80384e77</color>
     <color name="md_falcon_500_75">#c0384e77</color>
     <color name="md_falcon_A400_25">#40598bae</color>
-
     <color name="md_statusbar_translucent">#4000</color>
 </resources>

@@ -1,55 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/md_white_1000">
-    <FrameLayout
-        android:id="@+id/statusBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topMargin"
-        android:background="?colorPrimaryDark"
-        android:elevation="8dp" />
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="8dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    <com.codejune.sutaekhighschool.ui.SlidingTabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
+    >
+<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codejune.sutaekhighschool.Meal" />
+    <com.gc.materialdesign.views.ButtonFloat
+        android:id="@+id/mealinfo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
-        android:background="@color/public_color"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/swiperefresh">
-        <android.support.v4.view.ViewPager
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
-        <com.codejune.sutaekhighschool.ui.FloatingActionButton
-            android:id="@+id/mealinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            fab:fab_size="normal"
-            fab:fab_colorNormal="@color/md_light_blue_500"
-            fab:fab_icon="@drawable/info"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"/>
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:background="@color/blue"
+        materialdesign:animate="true"
+        materialdesign:icon="@drawable/info" />
+</RelativeLayout>

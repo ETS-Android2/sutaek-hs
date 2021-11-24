@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Appname -->
-    <string name="app_name">Sutaek High School</string>
-    <string name="main">Main</string>
 
-    <!-- NoticeActivity -->
+    <string name="app_name">Sutaek High School</string>
+    <string name="home">Home</string>
+    <string name="allmenu">All Menu</string>
     <string name="notices">Notices</string>
     <string name="notices_parents">Notices for Parents</string>
-    <string name="notices_info">Showing 15 Recent Notices from the School</string>
-    <string name="noti_parents_info">Showing 15 Recent Notices for Parents from the School</string>
-    <string name="attachment"><![CDATA["<Refer Attached File>"]]></string>
-    <string name="date">Date</string>
-    <string name="author">Author</string>
-
-    <!-- MealActivity -->
     <string name="meal">Meal Chart</string>
+    <string name="schoolinfo">School Informations</string>
+    <string name="schoolevent">School Event</string>
+    <string name="schedule">Schedule</string>
+    <string name="schoolintro">About the School</string>
+    <string name="info">About the App</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednsday">Wednsday</string>
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
+    <string name="notices_info">Showing 15 Recent Notices from the School</string>
+    <string name="noti_parents_info">Showing 15 Recent Notices for Parents from the School</string>
+    <string name="schoolevent_info">Showing 15 Recent School Event</string>
     <string name="meal_info">This Week Meal List</string>
+    <string name="schedule_info">School Schedules in This Month</string>
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
-
-    <!-- Schedule -->
-    <string name="schedule">Schedule</string>
-    <string name="schedule_info">School Schedules in This Month</string>
-
-    <!-- SchoolEvent -->
-    <string name="schoolevent">School Event</string>
-    <string name="schoolevent_info">Showing 15 Recent School Event</string>
-
-    <!-- SchoolInfo -->
-    <string name="schoolinfo">School Informations</string>
-    <string name="adress">145, Gumbae-ro, Sutaekdong, Guri-si, Gyeonggi-do, Korea</string>
+    <string name="loading">Loading...</string>
+    <string name="not_loaded_yet">\nNot Loaded Yet...</string>
+    <string name="appsettings_apinfo_title">Application Information</string>
+    <string name="appsettings_appinfo_update">Check for updates on  Google Play</string>
+    <string name="appsettings_appinfo_src">Get full Sourcecode from GitHub</string>
+    <string name="appsettings_docs_title">Legal Notices Documents</string>
+    <string name="network_connection_warning">No network connection, Check your network connection first</string>
+    <string name="adress">145, Gumbae-ro, Sutaekdong, Guri-si, Gyeonggi-do, Korea\n[Click to see more on Google Maps]</string>
     <string name="transportations">버스를 이용하여 오는경우:\n1. 9, 91,92,93,95번 등 탑승 -> 검배사거리 하차 (구리여고 다음정류장) -> 환경사업소 방향으로 2~3분 도보\n2. 구리방향으로 201번 탑승 -> 수택고등학교 하차 (검배사거리 다음정류장, 종점 전 정류장)\n\n전철과 버스를 이용하여 오는경우:\n전철 중앙선 탑승 후 구리역 하차 -> 역 앞에서 마을버스 탑승 후 검배사거리에서 하차  -> 환경사업소 방향으로 2~3분 도보 (6번 탑승시 많이 돌아서 가나 수택고 앞에서 하차 가능)</string>
     <string name="location">Direction</string>
-
-    <!-- SchoolIntro -->
-    <string name="schoolintro">About the School</string>
+    <string name="contact">Contact</string>
+    <string name="school_office">Teachers\' room : 031-551-0674</string>
+    <string name="administration_department">Administration Office : 031-551-0673</string>
+    <string name="fax">FAX : 031-551-7442</string>
     <string name="feat_busin">특색사업</string>
     <string name="feat_busin_desc_1"> 1. 예능교육과정 특성화교 운영
         \n-소질과 재능 발굴, 실기능력배양
@@ -61,6 +59,8 @@
     <string name="feat_busin_desc_4"> 4. 과목중점형 교과교실제 운영을 통한 글로벌 수택인 육성
         \n-교육과정과 교육시설의 획기적 변화에 대한 공감대 형성
         \n-교사의 수업 전문성을 실현할 수 있는 교과교실 환경 조성</string>
+
+    <string name="homepage">Go to School Website</string>
     <string name="school_symbol">학교상징</string>
     <string name="goal_edu">교육목표</string>
     <string name="fe_eb">노력중점 및 특색사업</string>
@@ -75,6 +75,7 @@
     \n - 단단한 열매 - 결실
     \n - 줄기가 곧게 자람 - 지조
     \n - 다양한 쓰임새 - 봉사</string>
+
     <string name="our_goal">본교 교육목표</string>
     <string name="our_goal_desc">건전한 가치관을 가진 능력있는 사람</string>
     <string name="our_goal_sub_1">세계인 육성 :
@@ -85,12 +86,15 @@
     \n-자율과 책임으로 자아를 실현하고 건전한 가치관을 가진 사람</string>
     <string name="our_goal_sub_4">건강인 육성 :
     \n-튼튼한 몸과 건전한 정신을 가지고 공동체 문화를 주도하는 사람</string>
+
     <string name="our_imagin">가르치는 기쁨, 배우는 즐거움</string>
     <string name="our_imagin_sub_1">교사상 : 미래와 전통을 창조하는 학교, 희망의교 학교
     \n학생상 : 스스로 공부하는 능력있는 학생, 꿈을 키우는 학생
    \n교사상 : 품위 있고 존경 받는 교사, 능력있는 교사</string>
+
     <string name="our_philosophy">본교 교육이념</string>
     <string name="our_philosophy_sub">미래에 도전하는 창의적인 민주시민 육성</string>
+
     <string name="our_activity">본교 교육활동</string>
     <string name="our_activity_sub">
     1.예절바른 학생, 실력 있는 학생 기르기
@@ -130,32 +134,17 @@
         \n-한자검정, 한국사능력검정, 일본어능력시험, 영어 인증제 및 토익시험등
         \n-컴퓨터 관련 자격증 취득(기능사 시험)
     </string>
+    <string name="title_activity_doc__readme">README</string>
+    <string name="title_activity_doc__notices">NOTICES</string>
+    <string name="title_activity_doc__copying">COPYING</string>
+    <string name="title_activity_doc__contributors">CONTRIBUTORS</string>
 
-    <!-- AppInfo -->
-    <string name="info">About the App</string>
-    <string name="license">Open Source Licenses</string>
-    <string name="msg_license">This application is constructed using following software.</string>
-    <string name="msg_app_version">App Version: %1$s</string>
-    <string name="msg_copyright">© 2013. graduation in 2016 ByoungJune Kim All rights reserved.</string>
-    <string name="msg_about_description">SutaekHighSchool Android Mobile Application</string>
-    <string name="msg_about_fork_me_on_github">View on Github!</string>
-    <string name="msg_about_github_url">https://github.com/Codejune/SutaekHS</string>
-    <string name="msg_about_library_description">This application is made for a better life for students and parents school information.\nthe application can not be used for commercial purposes.\n\n</string>
-
-    <!-- DataLoad Warnning -->
-    <string name="loading">Loading...</string>
-    <string name="network_connection_warning">No network connection, Check your network connection first</string>
-    <string name="mealnone">Meal Information is empty.\n(Because of Holiday, Examination Period, Vacation, Etc...)</string>
-    <string name="schedulenone">Today Schedule is empty</string>
-    <string name="error">Loading Error. Cannot Load from the School Homepage</string>
-
-    <!-- Menu -->
     <string name="action_settings">20205 김병준</string>
-    <string name="gotoweb">View with Browser</string>
-    <string name="drawer_open">Drawer Open</string>
-    <string name="drawer_close">Drawer Close</string>
-
-    <!-- Dialog -->
+    <string name="mealnone">Meal Information is empty.\n(Because of Holiday, Examination Period, Vacation, Etc...)</string>
+    <string name="copyright">Copyright 2013. graduation in 2016 ByoungJune Kim all rights reserved</string>
     <string name="accept">ACCEPT</string>
     <string name="cancel">CANCEL</string>
+    <string name="gotoweb">View with Browser</string>
+    <string name="attachment"><![CDATA["<Refer Attached File>"]]></string>
+    <string name="title_activity_web_view">SutaekHighSchool</string>
 </resources>

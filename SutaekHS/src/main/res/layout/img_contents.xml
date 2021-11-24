@@ -1,31 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The toolbar and main content view -->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/tools">
-    <FrameLayout
-        android:id="@+id/statusBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topMargin"
-        android:background="?colorPrimaryDark"
-        android:elevation="8dp" />
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="96dp"
-        android:background="?attr/colorPrimary"
-        android:gravity="start"
-        android:elevation="8dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -34,8 +8,10 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            card_view:cardCornerRadius="2dp"
             android:layout_margin="16dp"
             >
             <LinearLayout
@@ -43,13 +19,57 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Title Text"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:id="@+id/tv_title" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="10dp"
+                            android:gravity="left">
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"                            
+                                android:layout_margin="5dp"
+                                android:background="#88CECECE" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_marginTop="5dp"
+                                android:text="Date Text"
+                                android:layout_marginLeft="15dp"
+                                android:id="@+id/tv_date" />
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:layout_marginBottom="5dp"
+                                android:text="Author Text"
+                                android:id="@+id/tv_author"
+                                android:layout_marginLeft="15dp"/>
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_margin="5dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#88CECECE" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -65,7 +85,7 @@
                                     android:textColor="#212121"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
                                     android:autoLink="all"
-                                    android:text="@string/loading"
+                                    android:text="@string/not_loaded_yet"
                                     android:id="@+id/tv_contents" />
                         </LinearLayout>
                     </LinearLayout>
@@ -154,15 +174,3 @@
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </ScrollView>
-        <com.codejune.sutaekhighschool.ui.FloatingActionButton
-            android:id="@+id/gotoweb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            fab:fab_size="normal"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"/>
-    </RelativeLayout>
-</LinearLayout>

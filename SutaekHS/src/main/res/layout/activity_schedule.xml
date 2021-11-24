@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The toolbar and main content view -->
-<LinearLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/tools">
-    <FrameLayout
-        android:id="@+id/statusBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topMargin"
-        android:background="?colorPrimaryDark"
-        android:elevation="8dp" />
+    android:layout_height="match_parent">
+
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="8dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+        android:layout_height="?actionBarSize"
+        android:id="@+id/toolbar"
+        android:minHeight="?actionBarSize"
+        android:background="?colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
@@ -35,7 +25,7 @@
                 android:id="@+id/month"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:textColor="@color/md_white_1000"/>
+                android:textColor="@color/white"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -46,7 +36,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/md_white_1000"/>
+                android:textColor="@color/white"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -57,7 +47,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:background="?selectableItemBackground"
-                android:textColor="@color/md_white_1000"/>
+                android:textColor="@color/white"/>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <android.support.v4.widget.SwipeRefreshLayout
@@ -74,5 +64,5 @@
             android:layout_below="@+id/toolbar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
-</LinearLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
